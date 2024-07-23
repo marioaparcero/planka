@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import BoardsContainer from '../../containers/BoardsContainer';
 import ProjectSettingsModalContainer from '../../containers/ProjectSettingsModalContainer';
 
-import styles from './Project.module.scss';
+import styles from '../Header/Header.module.scss';
 
 const Project = React.memo(({ isSettingsModalOpened }) => {
   return (

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Button, Icon, Menu } from 'semantic-ui-react';
 import { usePopup } from '../../lib/popup';
 
@@ -11,6 +11,7 @@ import User from '../User';
 import UserStep from '../UserStep';
 
 import styles from './Header.module.scss';
+import Config from '../../constants/Config';
 
 const POPUP_PROPS = {
   position: 'bottom right',
@@ -30,6 +31,7 @@ const Header = React.memo(
     onUserSettingsClick,
     onLogout,
   }) => {
+    const { id } = useParams();
     const handleProjectSettingsClick = useCallback(() => {
       if (canEditProject) {
         onProjectSettingsClick();
@@ -43,7 +45,7 @@ const Header = React.memo(
       <div className={styles.wrapper}>
         {!project && (
           <Link to={Paths.ROOT} className={classNames(styles.logo, styles.title)}>
-            Planka
+            OWGalaxy
           </Link>
         )}
         <Menu inverted size="large" className={styles.menu}>
@@ -65,6 +67,15 @@ const Header = React.memo(
                   >
                     <Icon fitted name="pencil" size="small" />
                   </Button>
+                )}
+                {canEditUsers && (
+                  <Menu.Item
+                    as={Link}
+                    to={`${Config.BASE_PATH}/calendar/${id}`}
+                    className={classNames(styles.item, styles.itemHoverable)}
+                  >
+                    <Icon fitted name="calendar alternate outline" />
+                  </Menu.Item>
                 )}
               </Menu.Item>
             </Menu.Menu>

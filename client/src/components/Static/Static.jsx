@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useTranslation, Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Icon, Loader } from 'semantic-ui-react';
 
 import ProjectsContainer from '../../containers/ProjectsContainer';

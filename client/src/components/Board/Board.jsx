@@ -125,6 +125,7 @@ const Board = React.memo(
       <>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div ref={wrapper} className={styles.wrapper} onMouseDown={handleMouseDown}>
+          BOARDS
           <div>
             <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
               <Droppable droppableId="board" type={DroppableTypes.LIST} direction="horizontal">

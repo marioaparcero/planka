@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation, Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Loader } from 'semantic-ui-react';
 
 import ModalTypes from '../../constants/ModalTypes';
@@ -16,7 +16,6 @@ import styles from './Core.module.scss';
 const Core = React.memo(
   ({ isInitializing, isSocketDisconnected, currentModal, currentProject, currentBoard }) => {
     const [t] = useTranslation();
-
     const defaultTitle = useRef(document.title);
 
     useEffect(() => {
